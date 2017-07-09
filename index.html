@@ -3,8 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="./jquery.rss.js"></script>
+    <style>
+        button{
+            background: black;
+            color: white;
+        }
+
+        .red-btn{
+            background: red;
+        }
+
+        .news-item{
+
+        }
+    </style>
 </head>
 <body>
-    <h1>hello world 111!</h1>
+    <h1 id="title">Новости интернета!</h1>
+    <button class="red-btn">test</button>
+    <div id="rss-feeds"></div>
+
+    <script>
+        console.log('init')
+
+        $('.red-btn').click(function () {
+            $('#title').text(Date.now())
+        })
+
+        $("#rss-feeds").rss("https://news.yandex.ru/internet.rss", {
+            limit: 10,
+        })
+    </script>
 </body>
 </html>
